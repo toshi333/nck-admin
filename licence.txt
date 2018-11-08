@@ -1,0 +1,23 @@
+django
+Copyright (c) Django Software Foundation and individual contributors.
+https://github.com/django/django/blob/master/LICENSE
+
+django-rest-framework
+Copyright © 2011-present, Encode OSS Ltd. All rights reserved.
+https://github.com/encode/django-rest-framework/blob/master/LICENSE.md
+
+drf-writable-nested
+Copyright (c) 2014-2017, beda.software All rights reserved.
+https://github.com/beda-software/drf-writable-nested/blob/master/LICENSE.md
+
+social-app-django
+Copyright (c) 2012-2016, Matías Aguirre
+https://github.com/python-social-auth/social-app-django/blob/master/LICENSE
+
+django-filter
+Copyright (c) Alex Gaynor and individual contributors.
+https://github.com/carltongibson/django-filter/blob/master/LICENSE
+
+django-bootstrap4
+Copyright (c) Zostera B.V. and individual contributors.
+https://github.com/zostera/django-bootstrap4/blob/master/LICENSE
