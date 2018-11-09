@@ -1,13 +1,12 @@
 from rest_framework import serializers
-from .models import Customer, Product
-from django.contrib.auth.models import User
+from .models import AppUser, Customer, Product
 from drf_writable_nested import WritableNestedModelSerializer, UniqueFieldsMixin
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'last_name')
+        model = AppUser
+        fields = ('id', 'username', 'last_name', 'first_name', 'email', 'profile_picture')
 
 
 class ProductSerializer(UniqueFieldsMixin, serializers.ModelSerializer):

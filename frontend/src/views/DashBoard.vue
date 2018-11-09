@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap>
-    <v-flex ma-1 xs-5 v-sortable>
+    <v-flex ma-1 xs-5>
       <working-rate></working-rate>
     </v-flex>
     <v-flex ma-1 xs-3>

@@ -2,6 +2,8 @@
   <v-card>
     <v-toolbar color="#424242" dark dense card>
       <v-toolbar-title>顧客一覧</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn color="info" @click="$router.push('/customer_detail/0')">新規作成</v-btn>
     </v-toolbar>
     <v-card-text>
       <v-layout row wrap>
@@ -18,8 +20,6 @@
           <v-btn color="info" @click="fetchData()">検索</v-btn>
         </v-flex>
       </v-layout>
-      <v-spacer></v-spacer>
-      <v-btn color="info" @click="$router.push('/customer_detail/0')">新規作成</v-btn>
       <v-data-table :headers="headers" :items="data" hide-actions class="elevation-1">
         <template slot="items" slot-scope="props">
           <td>{{ props.item.id }}</td>

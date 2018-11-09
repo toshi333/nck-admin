@@ -14,8 +14,9 @@ export default {
         })
     },
 
-    create(url, data) {
+    create(url, data, contentType=null) {
         let sendOptions = { headers: { 'X-CSRFToken': this.csrftoken("csrftoken") } }
+        if(contentType) sendOptions.headers['content-type'] = contentType
         return new Promise((resolve, reject) => {
             axios.post(url, data, sendOptions)
                 .then(
@@ -27,8 +28,10 @@ export default {
         })
     },
 
-    update(url, key, data) {
+    update(url, key, data, contentType=null) {
         let sendOptions = { headers: { 'X-CSRFToken': this.csrftoken("csrftoken") } }
+        if(contentType) sendOptions.headers['content-type'] = contentType
+
         return new Promise((resolve, reject) => {
             axios.put(url + key + '/', data, sendOptions)
                 .then(res => {

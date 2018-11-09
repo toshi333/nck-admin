@@ -82,9 +82,49 @@
       <v-btn icon>
         <v-icon>search</v-icon>
       </v-btn>
-      <v-btn icon href="/accounts/logout/">
-        <v-icon>more_vert</v-icon>
-      </v-btn>
+
+      <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="200" offset-x left>
+        <v-btn icon slot="activator">
+          <v-icon>more_vert</v-icon>
+        </v-btn>
+
+        <v-card>
+          <v-list>
+            <v-list-tile avatar>
+              <v-list-tile-avatar>
+                <img :src="userInfo.userIcon">
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title>{{userInfo.userName}}</v-list-tile-title>
+              </v-list-tile-content>
+
+            </v-list-tile>
+
+          <v-divider></v-divider>
+
+            <v-divider></v-divider>
+            <v-list-tile @click="userProfile()" ripple>
+              <v-list-tile-action>
+                <v-icon>event_note</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>プロフィール編集</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-divider></v-divider>
+            <v-list-tile href="/accounts/logout/" ripple>
+              <v-list-tile-action>
+                <v-icon>event_note</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>ログアウト</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-menu>
 
     </v-toolbar>
     <v-content class="maincontent">
@@ -102,8 +142,16 @@ export default {
   name: "app",
   data() {
     return {
-      navBar: null
+      navBar: null,
+      userInfo: userInfo,
+      menu: false
     };
+  },
+  methods: {
+    userProfile() {
+      this.menu = false;
+      this.$router.push('/user_profile/' + this.userInfo.userId)
+    }
   },
   mounted: function() {},
   destroyed: function() {}

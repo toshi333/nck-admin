@@ -1,5 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, UserManager
+
+
+class AppUser(AbstractUser):
+    """アプリで利用するユーザー"""
+
+    # 画像保存先指定./media/profilesになる
+    profile_picture = models.ImageField(upload_to='profiles')
+    
+    objects = UserManager()
+    
+    def __str__(self):
+        return self.username
 
 
 class Customer(models.Model):
@@ -7,7 +19,7 @@ class Customer(models.Model):
 
     name = models.CharField('顧客名', max_length=255)
     rank = models.CharField('ランク', max_length=1)
-    user = models.ForeignKey(User, verbose_name='担当者', related_name='customers', on_delete=models.PROTECT)
+    user = models.ForeignKey(AppUser, verbose_name='担当者', related_name='customers', on_delete=models.PROTECT)
 
     created_at = models.DateTimeField('登録日時', auto_now_add=True)
     updated_at = models.DateTimeField('更新日時', auto_now=True)

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import DashBoard from './views/DashBoard.vue'
+import UserProfile from './views/UserProfile.vue'
 import WorkRecords from './views/WorkRecords.vue'
 import CustomerIndex from './views/CustomerIndex.vue'
 import CustomerDetail from './views/CustomerDetail.vue'
@@ -14,6 +15,11 @@ export default new Router({
       path: '/',
       name: 'DashBoard',
       component: DashBoard
+    },
+    {
+      path: '/user_profile/:id',
+      name: 'UserProfile',
+      component: UserProfile
     },
     {
       path: '/work_records',

@@ -1,8 +1,14 @@
 from django_filters import rest_framework as filters
 from rest_framework.viewsets import ModelViewSet
-from .models import Customer, Product
-from .serializers import CustomerSerializer, ProductSerializer
+from .models import AppUser, Customer, Product
+from .serializers import UserSerializer, CustomerSerializer, ProductSerializer
 from rest_framework.permissions import IsAuthenticated
+
+
+class UserViewSet(ModelViewSet):
+    # permission_classes = (IsAuthenticated,)
+    queryset = AppUser.objects.all()
+    serializer_class = UserSerializer
 
 
 class CustomerFilter(filters.FilterSet):

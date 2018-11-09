@@ -118,11 +118,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Google認証連携 GoogleOAuth2
 AUTHENTICATION_BACKENDS = (
  'social_core.backends.google.GoogleOAuth2',  # for Google authentication
  'django.contrib.auth.backends.ModelBackend',
 )
 
+# アプリ共通で利用するユーザーモデル
+AUTH_USER_MODEL = 'master.AppUser'
+# Google認証で利用するユーザーモデル
+SOCIAL_AUTH_USER_MODEL = 'master.AppUser'
+
+# Googleの認証キーとシークレットキー※Google側で発行
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '632935516812-fae6nab2365o2igo16l0rncvtqhllgaq.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'kSRGQSjKnvqSJqJ4fcoipQ-A'
 
@@ -149,8 +156,16 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# ./メディアファイルの保存先
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+# ログイン画面のURL
 LOGIN_URL = 'login'
+# ログイン成功後のリダイレクト先
 LOGIN_REDIRECT_URL = 'index'
+# ログアウト後のリダイレクト先
 LOGOUT_REDIRECT_URL = 'login'
 
 # CORS (Cross-Origin Resource Sharing)対応設定
