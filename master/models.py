@@ -40,3 +40,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TaskCd(models.Model):
+    """作業コードマスタ"""
+
+    task_cd = models.CharField('作業コード', primary_key=True, max_length=4)
+    title = models.CharField('作業名', max_length=20)
+    description = models.CharField('説明', blank=True, null=True, max_length=30)
+    type = models.CharField('作業区分', max_length=10)
